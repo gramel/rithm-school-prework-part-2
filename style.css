@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+/* Tested on Chrome Version 67.0.3396.87 (64-bit) and Firefox Quantum 61.0.1 (64-bit) */
+
+/* Table of Contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Animation
+- Base Element Styles
+- Navigation
+- Landing Page
+- Contact Page
+- About Page
+*/
+
+/* Animation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Base Element Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background: #fff;
+  font-size: 62.5%; /* definition of 1rem */
+}
+
+body {
+  box-sizing: border-box;
+}
+
+/* Navigation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.header .container {
+  display: grid;
+  grid-template: 1fr / 1fr;
+  align-items: center;
+  height: 100vh;
+  min-height: 450px;
+  background-image: radial-gradient(
+      circle at 50vw 75vh,
+      transparent,
+      transparent,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 1)
+    ),
+    url('img/desert.jpg'); /* credit: jonatan-pie-194115-unsplash */
+  background-position: center;
+  background-size: cover;
+  backface-visibility: hidden;
+}
+
+.header__navigation--link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header__navigation--link:hover .header__navigation--tagline-contact,
+.header__navigation--link:hover .header__navigation--tagline-about {
+  color: #ffe81f;
+  animation: moveInUp 0.5s ease-out;
+  animation-fill-mode: backwards;
+  visibility: visible;
+}
+
+.header__navigation--link:hover #header__navigation--link-contact,
+.header__navigation--link:hover #header__navigation--link-about {
+  color: #ffe81f;
+}
+
+.header__navigation--tagline-contact,
+.header__navigation--tagline-about {
+  margin-left: 5rem;
+  color: transparent;
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.32rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  visibility: hidden;
+}
+
+#header__navigation--link-contact,
+#header__navigation--link-about {
+  margin-left: 5rem;
+  color: #fff;
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 10rem;
+  font-weight: 700;
+  letter-spacing: 0.6rem;
+  text-transform: uppercase;
+}
+
+/* Landing Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Contact Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.main__contact {
+  display: grid;
+  grid-template: calc((100vh - 30.3rem) / 2) 1fr / auto 77rem auto;
+  align-items: start;
+  height: 100vh;
+  min-height: 450px;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(33, 33, 33, 0.8),
+      rgba(33, 33, 33, 0.8)
+    ),
+    url('img/forest.jpg'); /* credit: michael-liao-391846-unsplash */
+  background-position: center;
+  background-size: cover;
+  backface-visibility: hidden;
+}
+
+.main__contact .container {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+.main__contact--section-link {
+  color: #4bd5ee;
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.32rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+
+.main__contact--section-link:nth-child(2) {
+  margin-left: 1.6rem;
+}
+
+.main__contact--section-link:hover {
+  color: #ffe81f;
+}
+
+.main__contact--section-content {
+  margin-bottom: 1.2rem;
+  color: #fff;
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.08rem;
+}
+
+.main__contact--section-content:nth-child(3) {
+  margin-top: 2.4rem;
+}
+
+svg {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1.6rem;
+  cursor: pointer;
+}
+
+svg:hover path {
+  fill: #ffe81f;
+}
+
+path {
+  transition: fill 0.3s ease;
+}
+
+/* About Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.main__about {
+  display: grid;
+  grid-template: calc((100vh - 30.3rem) / 2) 1fr / auto 77rem auto;
+  align-items: start;
+  height: 100vh;
+  min-height: 450px;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(33, 33, 33, 0.8),
+      rgba(33, 33, 33, 0.8)
+    ),
+    url('img/canyon.jpg'); /* credit: mark-basarab-122141-unsplash */
+  background-position: center;
+  background-size: cover;
+  backface-visibility: hidden;
+}
+
+.main__about .container {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+.main__about--section-link {
+  color: #4bd5ee;
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.32rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+}
+
+.main__about--section-link:nth-child(2) {
+  margin-left: 1.6rem;
+}
+
+.main__about--section-link:hover {
+  color: #ffe81f;
+}
+
+.main__about--section-content {
+  margin-bottom: 1.2rem;
+  color: #fff;
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.08rem;
+}
+
+.main__about--section-content:nth-child(3) {
+  margin-top: 2.4rem;
+}
+
+.main__about--section-content-link {
+  color: #4bd5ee;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.main__about--section-content-link:hover {
+  color: #ffe81f;
+}
